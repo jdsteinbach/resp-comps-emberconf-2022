@@ -1,0 +1,504 @@
+@use "sass:math";
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * Copyright (C) 2015 Hakim El Hattab, http://hakim.se
+
+ */
+
+// Default mixins and settings -----------------
+@import "template/mixins";
+@import "template/settings";
+// ---------------------------------------------
+
+@import "fonts";
+
+$color--red: #E04E39;
+$color--blue: #74B0CE;
+$color--yellow: #FBC840;
+$color--gray--medium: #565351;
+$color--gray--light: #9B9897;
+$color--gray--lightest: #D4D2D1;
+$color--white: #fff;
+
+// Light Colors
+$-mainColor: #151311;
+$-headingColor: $color--red;
+
+$-backgroundColor: #D4D2D1;
+$-backgroundColorAlt: #565351;
+$-shadowColor: $color--red;
+$-shadowColorAlt: $-mainColor;
+
+$-linkColor: darken($color--blue, 25%);
+$-linkColorHover: darken($color--blue, 15%);
+$-selectionBackgroundColor: lighten($-linkColor, 20%);
+
+$-accentColor: $color--red;
+$-codeColor: $color--gray--medium;
+$-codeBackgroundColor: #2A2825;
+
+//Dark Colors
+$-mainColor--dark: $color--white;
+$-headingColor--dark: $color--red;
+
+$-backgroundColor--dark: #151311;
+$-backgroundColorAlt--dark: #2A2825;
+$-shadowColorAlt--dark: darken($color--blue, 40%);
+$-shadowColor--dark: $color--red;
+
+$-linkColor--dark: $color--blue;
+$-linkColorHover--dark: lighten($color--blue, 15%);
+$-selectionBackgroundColor--dark: lighten($-linkColor--dark, 20%);
+
+$-accentColor--dark: $color--red;
+$-codeColor--dark: $color--gray--lightest;
+
+:root {
+  --mainColor: #{$-mainColor};
+  --headingColor: #{$-headingColor};
+
+  --backgroundColor: #{$-backgroundColor};
+  --backgroundColorAlt: #{$-backgroundColorAlt};
+  --shadowColor: #{$-shadowColor};
+  --shadowColorAlt: #{$-shadowColorAlt};
+
+  --linkColor: #{$-linkColor};
+  --linkColorHover: #{$-linkColorHover};
+  --selectionBackgroundColor: #{$-selectionBackgroundColor};
+
+  --accentColor: #{$-accentColor};
+  --codeColor: #{$-codeColor};
+  --codeBackgroundColor: #{$-codeBackgroundColor};
+
+  --logoColor: #000;
+
+  @media (prefers-color-scheme: dark) {
+    --mainColor: #{$-mainColor--dark};
+    --headingColor: #{$-headingColor--dark};
+
+    --backgroundColor: #{$-backgroundColor--dark};
+    --backgroundColorAlt: #{$-backgroundColorAlt--dark};
+    --shadowColor: #{$-shadowColor--dark};
+    --shadowColorAlt: #{$-shadowColorAlt--dark};
+
+    --linkColor: #{$-linkColor--dark};
+    --linkColorHover: #{$-linkColorHover--dark};
+    --selectionBackgroundColor: #{$-selectionBackgroundColor--dark};
+
+    --accentColor: #{$-accentColor--dark};
+    --codeColor: #{$-codeColor--dark};
+
+    --logoColor: #fff;
+  }
+}
+
+// Override theme settings (see ../template/settings.scss)
+$mainColor: #{var(--mainColor)};
+$headingColor: #{var(--headingColor)};
+
+$backgroundColor: #{var(--backgroundColor)};
+$backgroundColorAlt: #{var(--backgroundColorAlt)};
+$shadowColor: #{var(--shadowColor)};
+$shadowColorAlt: #{var(--shadowColorAlt)};
+
+$linkColor: $-linkColor;
+$linkColorHover: #{var(--linkColorHover)};
+$selectionBackgroundColor: #{var(--selectionBackgroundColor)};
+
+$accentColor: #{var(--accentColor)};
+$codeColor: #{var(--codeColor)};
+
+$default-font: JetBrains Mono;
+
+$mainFontSize: 2rem;
+$mainFont: $default-font, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$codeFont: $default-font, SF Mono, Operator Mono, Input Code, Source Code Pro, monospace;
+$titleFont: Dela Gothic One, $mainFont;
+$headingFont: Krona One, $mainFont;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 700;
+
+$heading1Size: 3em;
+$heading2Size: 2.5em;
+$heading3Size: 1.75em;
+$heading4Size: 1.25em;
+
+$fontWeightLight: 100;
+$fontWeightNormal: 400;
+$fontWeightBold: 700;
+
+$blockMargin: math.div($mainFontSize, 1.5);
+$headingMargin: 0 0 $blockMargin;
+
+section.has-light-background {
+  &,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $backgroundColor;
+  }
+}
+
+body {
+  font-family: $mainFont !important;
+}
+
+.reveal {
+  // OVERLAY FIX
+  &[aria-hidden="true"],
+  &[aria-hidden="true"] *,
+  .slide-background-content,
+  .slide-background-content * {
+    pointer-events: none !important;
+  }
+
+  section {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+    font-feature-settings: liga frac ordn;
+    font-weight: normal;
+    hyphens: none;
+
+    h1,
+    h2,
+    h3 {
+      --text-shadow-color: #{$shadowColorAlt};
+
+      &,
+      em {
+        text-shadow: .5px .5px 0 var(--text-shadow-color),
+                    1px 1px 0 var(--text-shadow-color),
+                    1.5px 1.5px 0 var(--text-shadow-color),
+                    2px 2px 0 var(--text-shadow-color);
+      }
+    }
+
+    h1 {
+      margin: 0;
+      font-family: $titleFont;
+      font-weight: bold;
+
+      em {
+        --text-shadow-color: #{$shadowColor};
+
+        color: $mainColor;
+      }
+    }
+
+    h2 {
+      --text-shadow-color: #{$shadowColor};
+
+      font-weight: bold;
+      color: $mainColor;
+
+      em {
+        --text-shadow-color: #{$shadowColorAlt};
+
+        font-weight: bold;
+        color: $headingColor;
+      }
+
+      &.big {
+        font-size: $heading1Size;
+      }
+    }
+
+    h3 {
+      font-weight: bold;
+
+      em {
+        --text-shadow-color: #{$shadowColor};
+
+        font-weight: bold;
+        color: $mainColor;
+      }
+
+      &.big {
+        font-size: $heading2Size;
+      }
+    }
+
+    h4 {
+      font-size: $heading4Size;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      & + p,
+      & + ul,
+      & + pre {
+        margin-top: 1em;
+      }
+    }
+
+    p,
+    li {
+      margin-left: auto;
+      margin-right: auto;
+      width: 20em;
+      max-width: 100%;
+      font-weight: normal;
+      text-align: center;
+
+      em {
+        font-weight: bold;
+        color: $accentColor;
+      }
+
+      code {
+        font-weight: inherit;
+      }
+
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    li {
+      margin: $blockMargin 0;
+      display: block;
+      text-align: left;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    ul {
+      margin: 0;
+    }
+
+    blockquote {
+      padding: .5em 1rem;
+      font-style: italic;
+      font-weight: 100;
+      background-color: $backgroundColorAlt;
+
+      > p {
+        font-size: $heading3Size;
+        font-weight: 100;
+
+        br {
+          display: block;
+          font-size: 1.5rem;
+        }
+      }
+
+      cite {
+        display: block;
+        font-style: italic;
+        font-size: $mainFontSize;
+        font-weight: normal;
+
+        &::before {
+          content: "~ ";
+        }
+      }
+
+      strong {
+        font-size: .85em;
+      }
+    }
+
+    em {
+      font-style: normal;
+    }
+
+    p {
+      &:first-child:last-child {
+        font-size: $heading3Size;
+      }
+    }
+
+    a {
+      color: var(--linkColor);
+
+      &:hover,
+      &:active {
+        color: var(--linkColorHover)
+      }
+    }
+
+    .big-p {
+      font-size: $heading1Size;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .output {
+      background-color: rgba($mainColor, .1);
+      text-align: left;
+      font-size: .8em;
+
+      > * {
+        background-color: $shadowColor;
+      }
+    }
+
+    code {
+      font-family: $codeFont;
+      font-weight: 100;
+      color: var(--codeColor);
+
+      &::before,
+      &::after {
+        content: '`';
+        font-weight: 100;
+        opacity: 0.6;
+      }
+
+      mark {
+        background-color: transparent;
+      }
+    }
+
+    h1 code,
+    h2 code,
+    h3 code,
+    h4 code {
+      font-weight: inherit;
+      color: inherit;
+    }
+
+    pre {
+      font-size: 1em;
+      display: inline-block;
+      width: auto;
+      background: transparent;
+      overflow: initial;
+      max-width: 30em;
+
+      &.small {
+        font-size: .825em;
+      }
+
+      &.tiny {
+        font-size: .7em;
+      }
+
+      code {
+        max-height: 100%;
+        font-size: 75%;
+
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    .small-code + pre code {
+      font-size: math.div($mainFontSize, 1.75);
+    }
+
+    .small-code + pre code,
+    pre:first-child:only-of-type {
+      padding: 0;
+      border-radius: 0;
+      background: var(--codeBackgroundColor);
+      box-shadow: 0 0 0 100vmax var(--codeBackgroundColor);
+
+      code {
+        background: inherit;
+      }
+    }
+
+    table {
+      th {
+        vertical-align: bottom;
+      }
+      th,
+      td {
+        text-align: center;
+      }
+    }
+
+    .t-emphasis {
+      font-family: $codeFont;
+      font-weight: bold;
+      color: $accentColor;
+      border-bottom: .125em solid $linkColor;
+    }
+
+    .t-bold {
+      font-weight: bold;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .hidden-label {
+      display: none;
+    }
+
+    .sr-only {
+      position: absolute;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+    }
+
+    .invisible-hr {
+      border: 0;
+      height: 0;
+      background: transparent;
+    }
+
+    .d-block {
+      display: block;
+    }
+
+    .mb-1 {
+      margin-bottom: $blockMargin;
+    }
+
+    .mb-2 {
+      margin-bottom: $blockMargin * 2;
+    }
+
+    .bg-light {
+      background: rgba($mainColor, .7);
+      backdrop-filter: blur(5px);
+    }
+
+    .complexity {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(15ch, 1fr));
+      gap: 2rem 1rem;
+    }
+
+    .auth0-logo {
+      margin-bottom: .1em;
+      max-height: 1em;
+      display: inline-block;
+      vertical-align: middle;
+      fill: $mainColor;
+    }
+  }
+
+  @import "code";
+  @import "colophon";
+  @import "noper";
+}
+
+
+iframe {
+  border-width: 0;
+}
+
+// Theme template ------------------------------
+@import "template/theme";
+
+// ---------------------------------------------

@@ -1,0 +1,145 @@
+/*
+
+Custom syntax highlighting
+
+*/
+
+
+/*
+gray: #2C313E,
+purple: #60569C,
+green: #5C6443,
+yellow: #DAC935,
+offwhite: #EBECF0
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  font-weight: 100;
+  color: $color--white;
+  background: $backgroundColorAlt;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-tag {
+  color: $color--blue;
+}
+
+.hljs-template-tag {
+  color: $color--gray--lightest;
+}
+
+.hljs-attr,
+.hljs-number {
+  color: $color--gray--lightest;
+}
+
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attribute {
+  color: $color--blue;
+}
+
+.hljs-literal {
+  color: $color--red;
+}
+
+.hljs-subst {
+  color: $color--blue;
+}
+
+.hljs-title,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-section,
+.hljs-type {
+  color: $color--yellow;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link {
+  color: $color--red;
+}
+
+.hljs-deletion,
+.hljs-string,
+.hljs-built_in,
+.hljs-builtin-name {
+  color: $color--white;
+}
+
+.hljs-addition,
+.hljs-quote,
+.hljs-meta {
+  color: $color--gray--lightest;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs mark {
+  position: relative;
+  color: $-backgroundColor;
+  background-color: transparent;
+
+  * {
+    color: inherit;
+    position: relative;
+    z-index: 1;
+  }
+
+  &::before {
+    content: '';
+    width: calc(100% + .3rem);
+    display: block;
+    position: absolute;
+    top: -.2em;
+    right: -0.15rem;
+    bottom: -.2em;
+    left: -0.15rem;
+    z-index: 0;
+    background-color: $-linkColorHover;
+  }
+
+  &.alt::before {
+    background-color: $shadowColor;
+  }
+}
+
+.hljs-comment {
+  font-style: italic;
+  color: $color--gray--light;
+}
+
+.code-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: .8em;
+
+  p {
+    margin: .5rem 1.5rem;
+    width: auto;
+    display: inline-block;
+    font-size: 1.25em;
+  }
+
+  hr {
+    flex: 1 0 100%;
+  }
+
+  &.code-list--small p {
+    font-size: .75em;
+  }
+}

@@ -1,0 +1,41 @@
+.colophon {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  position: fixed;
+  right: 10px;
+  bottom: 0;
+  left: 10px;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 15vw;
+  }
+}
+
+.colophon__logo {
+  padding: 10px 0;
+  width: 15vw;
+  height: 7vh;
+  object-fit: contain;
+  object-position: left bottom;
+
+  img {
+    margin: 0;
+  }
+}
+
+.colophon__link {
+  margin: 0;
+  padding: 0 1em;
+  display: inline-flex;
+  align-items: center;
+  opacity: .85;
+  font-family: $codeFont;
+  font-weight: 100;
+  font-style: italic;
+  font-size: 4vmin;
+  background-color: var(--backgroundColor);
+}

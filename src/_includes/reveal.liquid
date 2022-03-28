@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>{{ slides.title }}</title>
+    <meta name="description" content="{{ slides.description }}">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/custom.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        {% for slide in collections.slides %}
+          {% include "_section" %}
+        {% endfor %}
+      </div>
+
+      <footer class="colophon">
+        <div class="colophon__logo">
+          <img src="{{ slides.colophonImage }}" alt="{{ slides.colophonAlt }}" />
+        </div>
+
+        <a href="{{ slides.colophonURL }}" class="colophon__link">{{ slides.colophonShortURL }}</a>
+      </footer>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        height: 900,
+        width: 1200,
+        hash: true,
+        transition: 'fade'
+      });
+    </script>
+  </body>
+</html>

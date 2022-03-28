@@ -1,0 +1,81 @@
+@mixin v-fonts($family, $file-name, $format, $style: false, $weight: false) {
+  @font-face {
+    font-family: $family;
+    src: url('../../fonts/#{$file-name}') format('#{$format}');
+    @if $style {
+      font-style: $style;
+    }
+    @if $weight {
+      font-weight: $weight;
+    }
+  }
+}
+
+// @include v-fonts(
+//   "Recursive",
+//   "recursive.woff2",
+//   woff2-variations,
+//   $weight: 300 900
+// );
+
+// $default-font: Recursive;
+
+@include v-fonts(
+  "Dela Gothic One",
+  "dela-gothic-one-v9-latin-regular.woff2",
+  "woff2"
+);
+
+@include v-fonts(
+  "Krona One",
+  "krona-one-v12-latin-regular.woff2",
+  "woff2"
+);
+
+@include v-fonts(
+  "JetBrains Mono",
+  "jetbrains-mono-v11-latin-100.woff2",
+  "woff2",
+  normal,
+  100
+);
+
+@include v-fonts(
+  "JetBrains Mono",
+  "jetbrains-mono-v11-latin-100italic.woff2",
+  "woff2",
+  italic,
+  100
+);
+
+@include v-fonts(
+  "JetBrains Mono",
+  "jetbrains-mono-v11-latin-regular.woff2",
+  "woff2",
+  normal,
+  400
+);
+
+@include v-fonts(
+  "JetBrains Mono",
+  "jetbrains-mono-v11-latin-italic.woff2",
+  "woff2",
+  italic,
+  400
+);
+
+@include v-fonts(
+  "JetBrains Mono",
+  "jetbrains-mono-v11-latin-700.woff2",
+  "woff2",
+  normal,
+  700
+);
+
+@include v-fonts(
+  "JetBrains Mono",
+  "jetbrains-mono-v11-latin-700.woff2",
+  "woff2",
+  italic,
+  700
+);
