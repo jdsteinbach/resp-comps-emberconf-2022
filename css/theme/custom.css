@@ -122,35 +122,22 @@ body {
       -ms-hyphens: none;
           hyphens: none;
 }
-.reveal section h1,
-.reveal section h2,
-.reveal section h3 {
-  --text-shadow-color: var(--shadowColorAlt);
-}
-.reveal section h1,
-.reveal section h1 em,
-.reveal section h2,
-.reveal section h2 em,
-.reveal section h3,
-.reveal section h3 em {
-  text-shadow: 0.5px 0.5px 0 var(--text-shadow-color), 1px 1px 0 var(--text-shadow-color), 1.5px 1.5px 0 var(--text-shadow-color), 2px 2px 0 var(--text-shadow-color);
-}
 .reveal section h1 {
+  --r-heading-text-transform: normal;
   margin: 0;
   font-family: Dela Gothic One, JetBrains Mono, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-weight: bold;
 }
 .reveal section h1 em {
-  --text-shadow-color: var(--shadowColor);
   color: var(--mainColor);
 }
 .reveal section h2 {
-  --text-shadow-color: var(--shadowColor);
   font-weight: bold;
   color: var(--mainColor);
+  font-family: Dela Gothic One, JetBrains Mono, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  text-transform: none;
 }
 .reveal section h2 em {
-  --text-shadow-color: var(--shadowColorAlt);
   font-weight: bold;
   color: var(--headingColor);
 }
@@ -161,7 +148,6 @@ body {
   font-weight: bold;
 }
 .reveal section h3 em {
-  --text-shadow-color: var(--shadowColor);
   font-weight: bold;
   color: var(--mainColor);
 }
@@ -557,6 +543,9 @@ body {
   height: 50vmin;
   width: 50vmin;
   display: block;
+}
+.reveal .noper svg [stroke] {
+  stroke: #E04E39;
 }
 
 iframe {

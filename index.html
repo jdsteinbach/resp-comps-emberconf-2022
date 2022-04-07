@@ -14,7 +14,7 @@
       <div class="slides">
         
           <section>
-  <h1 class="big">Responsive Components<br><em>Present &amp; Future</em></h1>
+  <h1 class="big"><em>Responsive Components</em><br>Present &amp; Future</h1>
 
 </section>
 
@@ -115,7 +115,7 @@
 </section>
 
         
-          <section data-background-iframe="https://codepen.io/jdsteinbach/embed/XWabwQR" data-background-interactive="false">
+          <section data-background-iframe="https://codepen.io/jdsteinbach/embed/ExoEPjN" data-background-interactive="false" data-preload="true">
   
 </section>
 
@@ -131,14 +131,14 @@
 
         
           <section>
-  <pre><code class="hljs language-css"><span class="hljs-selector-class">.parent</span> {
+  <pre><code class="hljs language-css"><span class="hljs-selector-class">.albatross</span> {
   <span class="hljs-attr">--container-width</span>: <span class="hljs-number">720px</span>;
 
   <span class="hljs-attribute">display</span>: flex;
   <span class="hljs-attribute">flex-wrap</span>: wrap;
 }
 
-<span class="hljs-selector-class">.child</span> {
+<span class="hljs-selector-class">.albatross__child</span> {
   <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">1</span>;
   <span class="hljs-attribute">flex-basis</span>: <span class="hljs-built_in">calc</span>((<span class="hljs-built_in">var</span>(--container-width) - <span class="hljs-number">100%</span>) * <span class="hljs-number">999</span>);
 }
@@ -147,7 +147,7 @@
 </section>
 
         
-          <section data-background-iframe="https://codepen.io/jdsteinbach/embed/rNzVEGp" data-background-interactive="false">
+          <section data-background-iframe="https://codepen.io/jdsteinbach/embed/zYpWrwZ" data-background-interactive="false" data-preload="true">
   
 </section>
 
@@ -168,7 +168,7 @@
 </section>
 
         
-          <section data-background-iframe="https://codepen.io/jdsteinbach/embed/RwZPzJb" data-background-interactive="false">
+          <section data-background-iframe="https://codepen.io/jdsteinbach/embed/dyJmGRm" data-background-interactive="false" data-preload="true">
   
 </section>
 
@@ -219,22 +219,12 @@ ro.<span class="hljs-title function_">observe</span>(<span class="hljs-variable 
 </section>
 
         
-          <section>
-  <h4>Ember Modifier</h4>
-<ul>
-<li><a href="https://ember-resize-modifier.jhawk.co/modifiers/did-resize/">ember-resize-modifier.jhawk.co</a></li>
-<li><a href="https://github.com/PrecisionNutrition/ember-resize-kitchen-sink/tree/main/packages/ember-on-resize-modifier">ember-resize-kitchen-sink</a></li>
-</ul>
-
-</section>
-
-        
-          <section data-background-iframe="https://codepen.io/jdsteinbach/embed/ExvPZjW" data-background-interactive="false">
+          <section data-background-iframe="https://codepen.io/jdsteinbach/embed/gOoePxZ" data-background-interactive="false" data-preload="true">
   
 </section>
 
         
-          <section data-background-iframe="https://caniuse.com/resizeobserver" data-background-interactive="false">
+          <section data-background-iframe="https://caniuse.com/resizeobserver" data-background-interactive="false" data-preload="true">
   <p class="sr-only">Resize Observer is supported in all modern browsers (but not IE &amp; pre-Chromium Edge), covering 92.2% of global usage.</p>
 
 </section>
@@ -245,6 +235,8 @@ ro.<span class="hljs-title function_">observe</span>(<span class="hljs-variable 
 <pre><code class="hljs language-js">ro.<span class="hljs-title function_">observe</span>(el)
 
 ro.<span class="hljs-title function_">unobserve</span>(el)
+
+ro.<span class="hljs-title function_">disconnect</span>()
 </code></pre>
 
 </section>
@@ -268,6 +260,13 @@ ro.<span class="hljs-title function_">unobserve</span>(el)
 
         
           <section>
+  <h3>Solution:<br> <strong>Container Queries</strong></h3>
+<div class="credit"><strong>Credit: <a href="https://www.oddbird.net/talks/responsive-components/">Miriam Suzanne</a></strong><br><strong><a href="https://twitter.com/TerribleMia">@TerribleMia</a></strong></div>
+
+</section>
+
+        
+          <section>
   <h3>But Loops…</h3>
 <pre><code class="hljs language-scss"><span class="hljs-selector-class">.element</span> {
   <span class="hljs-attribute">width</span>: <span class="hljs-number">400px</span>;
@@ -277,13 +276,6 @@ ro.<span class="hljs-title function_">unobserve</span>(el)
   <span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;
 }
 </code></pre>
-
-</section>
-
-        
-          <section>
-  <h3>Solution:<br> <strong>Container Queries</strong></h3>
-<div class="credit"><strong>Credit: <a href="https://www.oddbird.net/talks/responsive-components/">Miriam Suzanne</a></strong><br><strong><a href="https://twitter.com/TerribleMia">@TerribleMia</a></strong></div>
 
 </section>
 
@@ -311,12 +303,6 @@ ro.<span class="hljs-title function_">unobserve</span>(el)
   }
 }
 </code></pre>
-
-</section>
-
-        
-          <section>
-  <h4>2. Style Children</h4>
 <p>Each <code>.widget</code> queries its potential containers.</p>
 
 </section>
@@ -346,12 +332,12 @@ ro.<span class="hljs-title function_">unobserve</span>(el)
 </section>
 
         
-          <section data-background-iframe="https://codepen.io/jdsteinbach/embed/ExwjpYJ" data-background-interactive="false">
+          <section data-background-iframe="https://codepen.io/jdsteinbach/embed/jOYzWZP" data-background-interactive="false" data-preload="true">
   
 </section>
 
         
-          <section data-background-iframe="https://caniuse.com/css-container-queries" data-background-interactive="false">
+          <section data-background-iframe="https://caniuse.com/css-container-queries" data-background-interactive="false" data-preload="true">
   <p class="sr-only">Browser support for Container Queries is currently Chrome, behind a flag. <a href="https://caniuse.com/css-container-queries">See current data on Can I use</a></p>
 
 </section>
@@ -360,6 +346,7 @@ ro.<span class="hljs-title function_">unobserve</span>(el)
           <section>
   <h3>Polyfill</h3>
 <p><a href="https://github.com/jsxtools/cqfill">Jonathan Neal’s <code>cqfill</code></a></p>
+<p><a href="https://github.com/GoogleChromeLabs/container-query-polyfill">Google Chrome Labs</a></p>
 
 </section>
 
@@ -368,8 +355,7 @@ ro.<span class="hljs-title function_">unobserve</span>(el)
   <h4>Ember Modifier Workaround</h4>
 <pre><code class="hljs language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">modifier</span>(<span class="hljs-function">(<span class="hljs-params">element, queries</span>) =&gt;</span> {
   <span class="hljs-keyword">const</span> ro = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ResizeObserver</span>(<span class="hljs-function"><span class="hljs-params">entries</span> =&gt;</span> {
-    <span class="hljs-comment">// use objects from `queries`</span>
-    <span class="hljs-comment">// to manage classes/sizes</span>
+    <span class="hljs-comment">// use `queries` to manage classes/sizes</span>
   });
   ro.<span class="hljs-title function_">observe</span>(element);
   <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> ro.<span class="hljs-title function_">disconnect</span>();
@@ -400,7 +386,7 @@ ro.<span class="hljs-title function_">unobserve</span>(el)
           <section>
   <h3>What Can I Do?</h3>
 <ul>
-<li>Use the polyfill</li>
+<li>Use a polyfill</li>
 <li>Follow the csswg spec &amp; join the discussion</li>
 <li>Upvote browser implementation trackers as available</li>
 </ul>
@@ -450,6 +436,18 @@ ro.<span class="hljs-title function_">unobserve</span>(el)
         hash: true,
         transition: 'fade'
       });
+
+
+      Reveal.on('slidechanged', e => {
+        console.log({e})
+        const [bgIframe] = document.querySelectorAll('.slide-background.present iframe')
+
+        console.log({bgIframe})
+
+        if (bgIframe) {
+          bgIframe.tabIndex = -1
+        }
+      })
     </script>
   
 
