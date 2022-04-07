@@ -40,6 +40,18 @@
         hash: true,
         transition: 'fade'
       });
+
+
+      Reveal.on('slidechanged', e => {
+        console.log({e})
+        const [bgIframe] = document.querySelectorAll('.slide-background.present iframe')
+
+        console.log({bgIframe})
+
+        if (bgIframe) {
+          bgIframe.tabIndex = -1
+        }
+      })
     </script>
   </body>
 </html>

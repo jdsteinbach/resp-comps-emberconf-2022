@@ -3,8 +3,7 @@
 ```js
 export default modifier((element, queries) => {
   const ro = new ResizeObserver(entries => {
-    // use objects from `queries`
-    // to manage classes/sizes
+    // use `queries` to manage classes/sizes
   });
   ro.observe(element);
   return () => ro.disconnect();

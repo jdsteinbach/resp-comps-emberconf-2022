@@ -4,4 +4,6 @@
 ro.observe(el)
 
 ro.unobserve(el)
+
+ro.disconnect()
 ```

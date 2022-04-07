@@ -165,41 +165,25 @@ body {
     font-weight: normal;
     hyphens: none;
 
-    h1,
-    h2,
-    h3 {
-      --text-shadow-color: #{$shadowColorAlt};
-
-      &,
-      em {
-        text-shadow: .5px .5px 0 var(--text-shadow-color),
-                    1px 1px 0 var(--text-shadow-color),
-                    1.5px 1.5px 0 var(--text-shadow-color),
-                    2px 2px 0 var(--text-shadow-color);
-      }
-    }
-
     h1 {
+      --r-heading-text-transform: normal;
+
       margin: 0;
       font-family: $titleFont;
       font-weight: bold;
 
       em {
-        --text-shadow-color: #{$shadowColor};
-
         color: $mainColor;
       }
     }
 
     h2 {
-      --text-shadow-color: #{$shadowColor};
-
       font-weight: bold;
       color: $mainColor;
+      font-family: $titleFont;
+      text-transform: none;
 
       em {
-        --text-shadow-color: #{$shadowColorAlt};
-
         font-weight: bold;
         color: $headingColor;
       }
@@ -213,8 +197,6 @@ body {
       font-weight: bold;
 
       em {
-        --text-shadow-color: #{$shadowColor};
-
         font-weight: bold;
         color: $mainColor;
       }

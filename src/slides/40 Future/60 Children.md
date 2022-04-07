@@ -10,3 +10,4 @@
   }
 }
 ```
+Each `.widget` queries its potential containers.
