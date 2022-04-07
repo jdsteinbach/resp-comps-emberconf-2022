@@ -344,6 +344,76 @@ ro.<span class="hljs-title function_">disconnect</span>()
 
         
           <section>
+  <h3>Container Units</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><em>Unit</em></th>
+<th style="text-align:left"><em>Base</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>qw</code></td>
+<td style="text-align:left">container width</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>qh</code></td>
+<td style="text-align:left">container height</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>qi</code></td>
+<td style="text-align:left">container inline-size</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>qb</code></td>
+<td style="text-align:left">container block-size</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>qmin</code></td>
+<td style="text-align:left">smaller of <code>qw</code>/<code>qh</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>qmax</code></td>
+<td style="text-align:left">larger of <code>qw</code>/<code>qh</code></td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://github.com/w3c/csswg-drafts/issues/5888#issuecomment-859884744">Source: csswg comment</a></p>
+
+</section>
+
+        
+          <section>
+  <h3>Content-Based Styles with&nbsp;<code>:has()</code></h3>
+<p>Style elements based on elements they contain</p>
+<pre><code class="hljs language-css"><span class="hljs-selector-class">.card</span> {
+  <span class="hljs-comment">/* layout, without image */</span>
+}
+
+<span class="hljs-selector-class">.card</span><span class="hljs-selector-pseudo">:has</span>(<span class="hljs-selector-class">.card__image</span>) {
+  <span class="hljs-comment">/* layout, with image */</span>
+}
+</code></pre>
+
+</section>
+
+        
+          <section>
+  <h3>Content-Based Styles with&nbsp;Templates</h3>
+<pre><code class="hljs language-hbs"><span class="language-xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card</span></span></span><span class="hljs-template-variable">{{<span class="hljs-name">hasImage</span> ? <span class="hljs-string">' card--image'</span> : <span class="hljs-string">''</span>}}</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+  </span><span class="hljs-template-tag">{{#<span class="hljs-name"><span class="hljs-built_in">if</span></span> hasImage}}</span><span class="language-xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card__image"</span> <span class="hljs-attr">src</span>=</span></span><span class="hljs-template-variable">{{<span class="hljs-name">image.src</span>}}</span><span class="language-xml"><span class="hljs-tag"> /&gt;</span>
+  </span><span class="hljs-template-tag">{{/<span class="hljs-name"><span class="hljs-built_in">if</span></span>}}</span><span class="language-xml">
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</span></code></pre>
+
+</section>
+
+        
+          <section>
   <h3>Polyfill</h3>
 <p><a href="https://github.com/jsxtools/cqfill">Jonathan Neal’s <code>cqfill</code></a></p>
 <p><a href="https://github.com/GoogleChromeLabs/container-query-polyfill">Google Chrome Labs</a></p>
@@ -371,6 +441,17 @@ ro.<span class="hljs-title function_">disconnect</span>()
 
         
           <section>
+  <h3>What Can I Do?</h3>
+<ul>
+<li>Use a polyfill</li>
+<li>Follow the csswg spec &amp; join the discussion</li>
+<li>Upvote browser implementation trackers as available</li>
+</ul>
+
+</section>
+
+        
+          <section>
   <h3>More Info</h3>
 <ul>
 <li><a href="https://github.com/dbaron/container-queries-implementability">David Baron’s Initial Proposal</a></li>
@@ -378,17 +459,6 @@ ro.<span class="hljs-title function_">disconnect</span>()
 <li><a href="https://css.oddbird.net/rwd/query/syntax/">Current Syntax</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries">MDN</a></li>
 <li><a href="https://github.com/w3c/csswg-drafts/projects/18">CSS Working Group’s Draft Spec</a></li>
-</ul>
-
-</section>
-
-        
-          <section>
-  <h3>What Can I Do?</h3>
-<ul>
-<li>Use a polyfill</li>
-<li>Follow the csswg spec &amp; join the discussion</li>
-<li>Upvote browser implementation trackers as available</li>
 </ul>
 
 </section>
